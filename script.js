@@ -1,3 +1,9 @@
+let num1 = '';
+let num2 = '';
+let operator = '';
+
+
+
 function addFunc (num1, num2) {
     const sumAdd = num1 + num2;
     return sumAdd;
