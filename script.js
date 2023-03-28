@@ -23,3 +23,7 @@ function divFunc (num1, num2) {
     const sumDiv = num1 / num2;
     return sumDiv;
 }
+
+function operate (num1, operator, num2) {
+
+}
