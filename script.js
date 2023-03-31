@@ -1,6 +1,3 @@
-let num1 = '';
-let num2 = '';
-let operator = '';
 
 class Calculator {
     constructor(previousOperandTextElement, currentOperandTextElement) {
@@ -20,12 +17,18 @@ class Calculator {
     };
 
     appendNumber(number) {
-        if (number === '.' && this.currentOperand.includes('.')) return
-        this.currentOperand = this.currentOperand.toString() + number.toString()
+        if (number === '.' && this.currentOperand.includes('.')) return;
+        this.currentOperand = this.currentOperand.toString() + number.toString();
     };
 
     chooseOperation(operation) {
-        
+        if (this.currentOperand === '') return;
+        if (this.previousOperand !== '') {
+            this.compute();
+        };
+        this.operation = operation;
+        this.previousOperand = this.currentOperand;
+        this.currentOperand = '';
     };
 
     compute() {
@@ -33,7 +36,8 @@ class Calculator {
     };
 
     updateDisplay() {
-        this.currentOperandTextElement.innerText = this.currentOperand
+        this.currentOperandTextElement.innerText = this.currentOperand;
+        this.previousOperandTextElement.innerText = this.previousOperand;
     };
 }
 
@@ -61,26 +65,3 @@ operationButtons.forEach(button => {
     })
 });
 
-function addFunc (num1, num2) {
-    const sumAdd = num1 + num2;
-    return sumAdd;
-};
-
-function subFunc (num1, num2) {
-    const sumSub = num1 - num2;
-    return sumSub;
-};
-
-function multiFunc (num1, num2) {
-    const sumMulti = num1 * num2;
-    return sumMulti;
-};
-
-function divFunc (num1, num2) {
-    const sumDiv = num1 / num2;
-    return sumDiv;
-}
-
-function operate (num1, operator, num2) {
-
-}
